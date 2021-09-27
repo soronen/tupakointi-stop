@@ -11,7 +11,9 @@
         android:theme="@style/Theme.TupakointiStop">
         <activity
             android:name=".Settings"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
