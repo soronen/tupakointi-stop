@@ -33,7 +33,7 @@
         android:text="0"
         android:textSize="48sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/päivättavoitteeseen"
-        app:layout_constraintEnd_toStartOf="@+id/päivättavoitteeseen"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.224"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="68dp"
         android:text="0"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="                                Päiviä tavoitteeseen"
+        android:text="    Päiviä tavoitteeseen"
         app:layout_constraintBottom_toTopOf="@+id/päivättavoitteeseen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
