@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TupakointiStop">
         <activity
+            android:name=".Settings"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
