@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/buttonNollaa"
@@ -30,7 +30,7 @@
         android:text="Poltettuja tupakoita päivässä: "
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/editTextMaara"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,17 +43,21 @@
         android:text="Tupakoiden Hinta: "
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toStartOf="@+id/editTextHinta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextMaara"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:imeActionId="9000"
+        android:imeActionLabel="maaraPressed"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:maxLines="1"
         android:text="#"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
@@ -62,12 +66,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editTextHinta"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:imeActionId="9001"
+        android:imeActionLabel="hintaPressed"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:inputType="number"
         android:text="#"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
@@ -110,8 +118,8 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:text="Menikö putkesi rikki? Ei hätää, voit aloittaa alusta painamalla nappia"
+        android:layout_marginBottom="8dp"
+        android:text="Rikkoutuiko putkesi? Ei hätää, voit aloittaa alusta painamalla nappia"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonNollaa"
         app:layout_constraintEnd_toEndOf="parent"
