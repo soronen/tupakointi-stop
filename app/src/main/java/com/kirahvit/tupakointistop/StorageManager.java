@@ -7,7 +7,6 @@ import android.util.Log;
 /**
  * Luokka sisältää SharedPreferences tallentamista ja lukemista helpottavia metodeja
  * @author Rasmus Nygård
- * test
  */
 
 public class StorageManager {
@@ -23,8 +22,6 @@ public class StorageManager {
 
     /**
      * Singleton
-     * @param context
-     * @return
      */
     public static StorageManager getStorageManager(Context context) {
 

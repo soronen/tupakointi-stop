@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tupakointi Stop</string>
+    <string name="notificationchannel">TupakointiStop_Notifications</string>
 </resources>
