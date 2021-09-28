@@ -12,12 +12,26 @@ import android.util.Log;
 
 public class StorageManager {
 
+    public static StorageManager storageManager_Instance;
+
     private Context context;
     private SharedPreferences sharedPreferences;
 
-    public StorageManager(Context context){
-        this.context = context;
+    private StorageManager(Context context){
         sharedPreferences = context.getSharedPreferences("com.kirahvit.app",Context.MODE_PRIVATE);
+    }
+
+    /**
+     * Singleton
+     * @param context
+     * @return
+     */
+    public static StorageManager getStorageManager(Context context) {
+
+        if (storageManager_Instance == null) {
+            storageManager_Instance = new StorageManager(context);
+        }
+        return storageManager_Instance;
     }
 
     /**

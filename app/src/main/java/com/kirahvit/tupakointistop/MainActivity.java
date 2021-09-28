@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        storageManager = new StorageManager(this);
+        storageManager = StorageManager.getStorageManager(this);
     }
 
     public void onButtonClick(View view){
