@@ -12,12 +12,14 @@ public class MainActivity extends AppCompatActivity {
     private int paivatTupakoimatta;
     private int paivatTavoitteeseen;
 
-    private StorageManager storageManager = new StorageManager(this);
+    private StorageManager storageManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        storageManager = new StorageManager(this);
     }
 
     public void onButtonClick(View view){
