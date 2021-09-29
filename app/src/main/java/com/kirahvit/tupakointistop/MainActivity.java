@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(viewId == R.id.lisääpäiväbutton){
             paivatTupakoimatta++;
-            paivatTavoitteeseen--;
         }
         else if (viewId == R.id.toiseennäkymäänbutton){
             goToSettings();
@@ -55,12 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void saveValues(){
         storageManager.saveValue("paivatTupakoimatta", paivatTupakoimatta);
-        storageManager.saveValue("paivatTavoitteeseen",paivatTavoitteeseen);
     }
 
     public void loadValues(){
         paivatTupakoimatta = storageManager.loadValue("paivatTupakoimatta");
-        paivatTavoitteeseen = storageManager.loadValue("paivatTavoitteeseen");
     }
 
     @Override

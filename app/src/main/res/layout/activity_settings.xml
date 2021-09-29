@@ -2,8 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settingsLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity">
 
     <Button
@@ -14,7 +17,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:onClick="resetPressed"
+        android:onClick="onButtonClick"
         android:text="Aloita Alusta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +77,8 @@
         android:imeActionId="9001"
         android:imeActionLabel="hintaPressed"
         android:imeOptions="actionDone"
-        android:maxLines="1"
         android:inputType="number"
+        android:maxLines="1"
         android:text="#"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
