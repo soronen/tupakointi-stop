@@ -45,6 +45,8 @@ public class Settings extends AppCompatActivity {
 
         // kun tupakoille syötetään hinta tai määrä, nämä tallentavat ne aktiviteetin muuttujiin.
         EditText editHinta = (EditText) findViewById(R.id.editTextHinta);
+        EditText editMaara = (EditText) findViewById(R.id.editTextMaara);
+
         editHinta.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
@@ -56,7 +58,6 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        EditText editMaara = (EditText) findViewById(R.id.editTextMaara);
         editMaara.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
@@ -65,6 +66,32 @@ public class Settings extends AppCompatActivity {
                     hideKeyboard(view);
                     Log.d(TAG, "onFocusChange: maara");
                 }
+            }
+        });
+
+        editHinta.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    hinta = Integer.parseInt(editHinta.getText().toString());
+                    hideKeyboard(view);
+                    Log.d(TAG, "onEditorAction: hinta");
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        editMaara.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    maara = Integer.parseInt(editMaara.getText().toString());
+                    hideKeyboard(view);
+                    Log.d(TAG, "onEditorAction: maara");
+                    return true;
+                }
+                return false;
             }
         });
     }
