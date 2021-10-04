@@ -165,7 +165,7 @@ public class Settings extends AppCompatActivity {
     private void loadValues(){
         hinta = storageManager.loadValue("hinta");
         maara = storageManager.loadValue("maara");
-        paivatTupakoimatta = storageManager.loadValue("paivatTupakoimatta");
+        paivatTupakoimatta = storageManager.loadValueInt("paivatTupakoimatta");
 
         updateUI();
     }

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadValues(){
-        paivatTupakoimatta = storageManager.loadValue("paivatTupakoimatta");
+        paivatTupakoimatta = storageManager.loadValueInt("paivatTupakoimatta");
     }
 
     @Override
