@@ -36,9 +36,17 @@ public class StorageManager {
      * @param name tunnistenimi, jolla haetaan tallennettua arvoa
      * @return int loadedValue löydetty arvo, oletusarvo 0
      */
-    public int loadValue(String name){
+    public float loadValue(String name){
 
-        int loadedValue = sharedPreferences.getInt(name, 0);
+        float loadedValue = sharedPreferences.getFloat(name, 0);
+        Log.d("logger", name + " value: " + loadedValue + " loaded.");
+
+        return loadedValue;
+    }
+
+    public int loadValueInt(String name){
+
+        int loadedValue = Math.round(sharedPreferences.getFloat(name, 0));
         Log.d("logger", name + " value: " + loadedValue + " loaded.");
 
         return loadedValue;
@@ -49,11 +57,11 @@ public class StorageManager {
      * @param name tunnistenimi
      * @param value arvo, joka tallennetaan tunnisteelle
      */
-    public void saveValue(String name, int value){
+    public void saveValue(String name, float value){
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt(name, value);
+        editor.putFloat(name, value);
         editor.commit();
         Log.d("logger", name + " value: " + value + " saved.");
     }
