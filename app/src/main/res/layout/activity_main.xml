@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="Toiseen näkymään"
+        android:text="Asetukset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,15 +55,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="156dp" />
+        app:layout_constraintGuide_end="217dp" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Päivät tupakoimatta"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/päivättupakoimatta"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.533" />
@@ -74,9 +75,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="    Päiviä tavoitteeseen"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/päivättavoitteeseen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvMotivoivatViestit"
+        android:layout_width="0dp"
+        android:layout_height="154dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/lisääpäiväbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

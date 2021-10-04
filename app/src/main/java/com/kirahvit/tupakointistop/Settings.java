@@ -21,8 +21,8 @@ import android.widget.Toast;
 public class Settings extends AppCompatActivity {
     private static final String TAG = "Settingslog";
 
-    private int maara;
-    private int hinta;
+    private float maara;
+    private float hinta;
     private int paivatTupakoimatta;
     private Button buttonNollaa;
 
@@ -51,7 +51,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if(!hasFocus){
-                    hinta = Integer.parseInt(editHinta.getText().toString());
+                    hinta = Float.parseFloat(editHinta.getText().toString());
                     hideKeyboard(view);
                     Log.d(TAG, "onFocusChange: hinta");
                 }
@@ -62,7 +62,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if(!hasFocus){
-                    maara = Integer.parseInt(editMaara.getText().toString());
+                    maara = Float.parseFloat(editMaara.getText().toString());
                     hideKeyboard(view);
                     Log.d(TAG, "onFocusChange: maara");
                 }
@@ -73,7 +73,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    hinta = Integer.parseInt(editHinta.getText().toString());
+                    hinta = Float.parseFloat(editHinta.getText().toString());
                     hideKeyboard(view);
                     Log.d(TAG, "onEditorAction: hinta");
                     return true;
@@ -86,7 +86,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    maara = Integer.parseInt(editMaara.getText().toString());
+                    maara = Float.parseFloat(editMaara.getText().toString());
                     hideKeyboard(view);
                     Log.d(TAG, "onEditorAction: maara");
                     return true;
@@ -96,6 +96,10 @@ public class Settings extends AppCompatActivity {
         });
     }
 
+    /**
+     * Button nollaa painallus kutsuu private metodin CreateAlertDialogue
+     * @param view
+     */
     public void onButtonClick(View view){
 
         if(view.getId() == R.id.buttonNollaa){
