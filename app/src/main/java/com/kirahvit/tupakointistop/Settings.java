@@ -82,6 +82,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+
         editMaara.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {

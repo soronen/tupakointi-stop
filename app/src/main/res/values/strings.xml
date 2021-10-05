@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">Tupakointi Stop</string>
     <string name="notificationchannel">TupakointiStop_Notifications</string>
+    <string name="aloitaalusta">Rikkoutuiko putkesi? Ei hätää, voit aloittaa alusta painamalla nappia</string>
     <string name="tupakanhinta">Tupakka-askin Hinta: </string>
     <string name="tupakanmaara">Kulutettuja askeja päivässä: </string>
     <string name="aloitaalustanappi">Aloita Alusta</string>
-    <string name="aloitaalusta">Rikkoutuiko putkesi? Ei hätää, voit aloittaa alusta painamalla nappia</string>
+    <string name="pvTupakoimatta">Päiviä tupakoimatta</string>
+    <string name="pvTavoitteeseen">Päiviä tavoitteeseen</string>
+    <string name="lisaapvNappi">Lisää päivä</string>
+    <string name="asetukset">Asetukset</string>
+    <string name="nappiTilastot">Tilastot</string>
+
 
 
 </resources>
