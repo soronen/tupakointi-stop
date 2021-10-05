@@ -14,8 +14,8 @@
 
 
 
-<!--viestit-->
-<string-array name="viestit"></string-array>
+    <!--viestit-->
+    <string-array name="viestit"></string-array>
     <string name="paiva0">Tästä se alkaa!</string>
     <string name="paiva1">Pahin päivä ohi!</string>
     <string name="paiva2">Vielä kestät!</string>
