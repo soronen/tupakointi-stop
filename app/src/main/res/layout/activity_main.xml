@@ -116,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
+        android:onClick="onButtonClick"
         android:text="@string/nappiTilastot"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/toiseennäkymäänbutton"
