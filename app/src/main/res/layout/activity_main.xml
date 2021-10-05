@@ -13,22 +13,22 @@
         android:onClick="onButtonClick"
         android:text="@string/lisaapvNappi"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <Button
         android:id="@+id/toiseennäkymäänbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
         android:onClick="onButtonClick"
         android:text="@string/asetukset"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lisääpäiväbutton" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/päivättupakoimatta"
@@ -59,7 +59,10 @@
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:text="@string/pvTupakoimatta"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/päivättupakoimatta"
@@ -70,8 +73,10 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:text="@string/pvTavoitteeseen"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/päivättavoitteeseen"
@@ -85,17 +90,18 @@
         android:layout_width="0dp"
         android:layout_height="154dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/lisääpäiväbutton"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.928" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -108,6 +114,8 @@
         android:id="@+id/buttonTilastot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:onClick="onButtonClick"
         android:text="@string/nappiTilastot"
         android:textSize="16sp"
@@ -115,4 +123,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lisääpäiväbutton" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

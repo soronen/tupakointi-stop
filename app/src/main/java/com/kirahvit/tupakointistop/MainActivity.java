@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private int paivatTupakoimatta;
@@ -17,12 +19,16 @@ public class MainActivity extends AppCompatActivity {
 
     private StorageManager storageManager;
 
+    TextView tv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         storageManager = StorageManager.getStorageManager(this);
+
+        TextView tv = findViewById(R.id.tvMotivoivatViestit);
     }
 
     public void onButtonClick(View view){
@@ -58,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         paivatTupakoimattaView.setText(String.valueOf(paivatTupakoimatta));
         paivatTavoitteeseenView.setText(String.valueOf(paivatTavoitteeseen));
+
     }
 
     public void saveValues(){
@@ -67,6 +74,41 @@ public class MainActivity extends AppCompatActivity {
     public void loadValues(){
         paivatTupakoimatta = storageManager.loadValueInt("paivatTupakoimatta");
     }
+
+    public void UpdateTV() {
+            int i = getPaivatTupakoimatta();
+
+            switch (i){
+                case 0:
+                    tv.setText(R.string.paiva0);
+                    break;
+                case 1:
+                    tv.setText(R.string.paiva0);
+                    break;
+                case 2:
+                    tv.setText(R.string.paiva0);
+                    break;
+                case 3:
+                    tv.setText(R.string.paiva0);
+                    break;
+                case 4:
+                    tv.setText(R.string.paiva0);
+                    break;
+                case 5:
+                    tv.setText(R.string.paiva0);
+                    break;
+                case 6:
+                    tv.setText(R.string.paiva0);
+                    break;
+                default:
+                    tv.setText(R.string.paivaDEFAULT);
+                    break;
+            }
+        }
+
+
+
+
 
     @Override
     protected void onPause() {
@@ -81,5 +123,9 @@ public class MainActivity extends AppCompatActivity {
 
         loadValues();
         updateUI();
+    }
+
+    public int getPaivatTupakoimatta() {
+        return paivatTupakoimatta;
     }
 }

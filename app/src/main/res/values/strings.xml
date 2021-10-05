@@ -13,4 +13,39 @@
 
 
 
+
+<!--viestit-->
+
+    <string name="paiva0">Tästä se alkaa!</string>
+    <string name="paiva1">Pahin päivä ohi!</string>
+    <string name="paiva2">Vielä kestät!</string>
+    <string name="paiva3">Kolme päivää!</string>
+    <string name="paiva4">Tilastot</string>
+    <string name="paiva5">Tilastot</string>
+    <string name="paiva6">Tilastot</string>
+    <string name="viikko1">Tilastot</string>
+    <string name="viikko2">Tilastot</string>
+    <string name="viikko3">Tilastot</string>
+    <string name="viikko4">Tilastot</string>
+    <string name="viikko5">Tilastot</string>
+    <string name="viikko6">Tilastot</string>
+    <string name="viikko7">Tilastot</string>
+    <string name="viikko8">Tilastot</string>
+    <string name="viikko9">Tilastot</string>
+    <string name="viikko10">Tilastot</string>
+    <string name="viikko11">Tilastot</string>
+    <string name="viikko12">Tilastot</string>
+    <string name="viikko13">Tilastot</string>
+    <string name="viikko14">Tilastot</string>
+    <string name="viikko15">Tilastot</string>
+    <string name="viikko16">Tilastot</string>
+    <string name="viikko17">Tilastot</string>
+    <string name="viikko18">Tilastot</string>
+    <string name="viikko19">Tilastot</string>
+    <string name="viikko20">Tilastot</string>
+
+
+    <string name="paivaDEFAULT">Hämmästyttävää</string>
+
+
 </resources>
