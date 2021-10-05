@@ -15,37 +15,46 @@
 
 
 <!--viestit-->
-
+<string-array name="viestit"></string-array>
     <string name="paiva0">Tästä se alkaa!</string>
     <string name="paiva1">Pahin päivä ohi!</string>
     <string name="paiva2">Vielä kestät!</string>
     <string name="paiva3">Kolme päivää!</string>
-    <string name="paiva4">Tilastot</string>
-    <string name="paiva5">Tilastot</string>
-    <string name="paiva6">Tilastot</string>
-    <string name="viikko1">Tilastot</string>
-    <string name="viikko2">Tilastot</string>
-    <string name="viikko3">Tilastot</string>
-    <string name="viikko4">Tilastot</string>
-    <string name="viikko5">Tilastot</string>
-    <string name="viikko6">Tilastot</string>
-    <string name="viikko7">Tilastot</string>
-    <string name="viikko8">Tilastot</string>
-    <string name="viikko9">Tilastot</string>
-    <string name="viikko10">Tilastot</string>
+    <string name="paiva4">Viikosta alle puolet jäljellä!</string>
+    <string name="paiva5">Viisi päivää tupakoimatta! Mahtavaa!</string>
+    <string name="paiva6">Huomenna on kulunut jo viikko!</string>
+    <string name="viikko1">Pahin viikko on ohi! Tästä se vain helpottuu!</string>
+    <string name="viikko2">Kaksi viikkoa!</string>
+    <string name="viikko3">Kuinkahan paljon olet jo säästänyt rahaa lopettamalla?</string>
+    <string name="viikko4">Yksi tupakka vähentää elinikää keskimäärin 10 minuuttia. Paljon sinä olet säästänyt?</string>
+    <string name="viikko5">Viikko 5!</string>
+    <string name="viikko6">Vielä 2 viikkoa kahteen kuukauteen!</string>
+    <string name="viikko7">7 Viikkoa tupakoimatta! Uskomatonta!</string>
+    <string name="viikko8">Kaksi kuukautta!</string>
+    <string name="viikko9">9 Viikkoa!</string>
+    <string name="viikko10">10 Viikkoa! Miten paljon tupakkataukoja olet säästänyt päivässä?</string>
     <string name="viikko11">Tilastot</string>
-    <string name="viikko12">Tilastot</string>
+    <string name="viikko12">Kolme kuukautta!</string>
     <string name="viikko13">Tilastot</string>
-    <string name="viikko14">Tilastot</string>
+    <string name="viikko14"></string>
     <string name="viikko15">Tilastot</string>
-    <string name="viikko16">Tilastot</string>
+    <string name="viikko16">Neljä kuukautta!</string>
     <string name="viikko17">Tilastot</string>
-    <string name="viikko18">Tilastot</string>
-    <string name="viikko19">Tilastot</string>
-    <string name="viikko20">Tilastot</string>
+    <string name="viikko18">👏👏👏👏👏👏👏👏</string>
+    <string name="viikko19">37% Vuodesta ohi! Vau!</string>
+    <string name="viikko20">5 kuukautta! Kohta  </string>
+    <string name="viikko21">Tilastot</string>
+    <string name="viikko22">Tilastot</string>
+    <string name="viikko23">Tilastot</string>
+    <string name="viikko24">Kuusi kuukautta! Yhdysvaltain ulkoministeriön mukaan ruotsin kielen oppiminen vie näin kauan aikaa. Sen sijaan sinä lopetit tupakoinnin!</string>
 
+
+
+    <string name="vuosi">Vuosi tupakoimatta? Tästä voi olla jopa ylpeä!</string>
+    <string name="eteenpain">🎉🎉🎉🎉</string>
 
     <string name="paivaDEFAULT">Hämmästyttävää</string>
+
 
 
 </resources>
