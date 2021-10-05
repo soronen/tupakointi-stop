@@ -7,4 +7,50 @@
     android:layout_height="match_parent"
     tools:context=".Tilastot">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline6"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_percent="0.15" />
+
+  <TextView
+      android:id="@+id/textViewSaastetutRahat"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Olet Säästänyt jo x euroa!"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toTopOf="@+id/guideline6"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+  <TextView
+      android:id="@+id/textViewRahaLista"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:text="Tässä havainnollistava lista asioista joita voit ostaa:"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textViewSaastetutRahat" />
+
+  <ScrollView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginBottom="8dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textViewRahaLista">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
