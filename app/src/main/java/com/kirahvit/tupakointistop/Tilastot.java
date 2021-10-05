@@ -16,6 +16,7 @@ public class Tilastot extends AppCompatActivity {
     private float maara;
     private int paivatTupakoimatta;
     private float lopullinenhinta;
+    private float elinika;
     private StorageManager storageManager;
 
     private ArrayList<Ostos> ostokset = new ArrayList<Ostos>();
@@ -34,15 +35,19 @@ public class Tilastot extends AppCompatActivity {
 
         //Tähän ostokset
         ostokset.add(new Ostos("Finnkino leffalippu", 8, lopullinenhinta));
+        ostokset.add(new Ostos("Linnanmäki ranneke", 40, lopullinenhinta));
+        ostokset.add(new Ostos("NHL 22", 60, lopullinenhinta));
+        ostokset.add(new Ostos("Samsung Galaxy AO3s älypuhelin", 140, lopullinenhinta));
+        ostokset.add(new Ostos("PlayStation 5", 500, lopullinenhinta));
 
         updateUI();
     }
 
     private void updateUI(){
 
-        TextView editHinta = (TextView) findViewById(R.id.textViewSaastetutRahat);
+        TextView saastetutRahat = (TextView) findViewById(R.id.textViewSaastetutRahat);
 
-        editHinta.setText("Olet säästänyt jo "+ String.valueOf(lopullinenhinta)+" euroa!");
+        saastetutRahat.setText("Olet säästänyt jo "+ String.valueOf(lopullinenhinta)+" euroa!");
 
         ListView listView = findViewById(R.id.ListViewOstokset);
 
@@ -56,5 +61,6 @@ public class Tilastot extends AppCompatActivity {
         paivatTupakoimatta = storageManager.loadValueInt("paivatTupakoimatta");
 
         lopullinenhinta = (maara * hinta * paivatTupakoimatta);
+        elinika = (maara * paivatTupakoimatta * 5);
     }
 }

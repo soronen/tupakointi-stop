@@ -49,4 +49,15 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textViewRahaLista" />
 
+  <TextView
+      android:id="@+id/textViewElinIka"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Olet pidentänyt elinikääsi x tunnilla!"
+      android:textSize="20sp"
+      app:layout_constraintBottom_toTopOf="@+id/textViewSaastetutRahat"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
