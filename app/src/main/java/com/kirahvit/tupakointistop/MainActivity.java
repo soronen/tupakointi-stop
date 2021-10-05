@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         if(viewId == R.id.lisääpäiväbutton){
             paivatTupakoimatta++;
         }
+        if(viewId == R.id.buttonTilastot){
+            goToTilastot();
+        }
         else if (viewId == R.id.toiseennäkymäänbutton){
             goToSettings();
         }
@@ -42,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
+    private void goToTilastot(){
+        Intent intent = new Intent(this, Tilastot.class);
+        startActivity(intent);
+    }
+
 
     public void updateUI(){
 
