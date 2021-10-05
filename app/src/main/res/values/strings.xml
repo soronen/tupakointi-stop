@@ -15,7 +15,6 @@
 
 
     <!--viestit-->
-    <string-array name="viestit"></string-array>
     <string name="paiva0">Tästä se alkaa!</string>
     <string name="paiva1">Pahin päivä ohi!</string>
     <string name="paiva2">Vielä kestät!</string>
@@ -28,30 +27,27 @@
     <string name="viikko3">Kuinkahan paljon olet jo säästänyt rahaa lopettamalla?</string>
     <string name="viikko4">Yksi tupakka vähentää elinikää keskimäärin 10 minuuttia. Paljon sinä olet säästänyt?</string>
     <string name="viikko5">Viikko 5!</string>
-    <string name="viikko6">Vielä 2 viikkoa kahteen kuukauteen!</string>
+    <string name="viikko6">Viikko 6 ja hyvin menee!</string>
     <string name="viikko7">7 Viikkoa tupakoimatta! Uskomatonta!</string>
-    <string name="viikko8">Kaksi kuukautta!</string>
+    <string name="viikko8">Kahdeksan viikkoa! Se on melkein 2 kuukautta!</string>
     <string name="viikko9">9 Viikkoa!</string>
     <string name="viikko10">10 Viikkoa! Miten paljon tupakkataukoja olet säästänyt päivässä?</string>
     <string name="viikko11">Viikko 11</string>
-    <string name="viikko12">Kolme kuukautta!</string>
-    <string name="viikko13">13</string>
-    <string name="viikko14">14 viikkoa</string>
-    <string name="viikko15">femton veckor</string>
-    <string name="viikko16">Neljä kuukautta!</string>
-    <string name="viikko17">17</string>
-    <string name="viikko18">👏👏👏👏👏👏👏👏</string>
-    <string name="viikko19">37% Vuodesta ohi! Vau!</string>
-    <string name="viikko20">5 kuukautta! Kohta  </string>
-    <string name="viikko21">21</string>
-    <string name="viikko22">🎉👏🎂💪💪💪🚭🚭🚭🚭🚭</string>
-    <string name="viikko23">🚭🚭🚭🚭🚭🚭🚭🚭🚭🚭🚭🚭🚭</string>
-    <string name="viikko24">Kuusi kuukautta!</string>
+    <string name="viikko12">12 Viikkoa, kohta kolme kuukautta täynnä!</string>
 
+    <string name="kuukausi3">Onneksi olkoon!</string>
+    <string name="kuukausi4">4. Kuukausi tupakoimatta!</string>
+    <string name="kuukausi5">Fem månader!</string>
+    <string name="kuukausi6">🎄🌙!</string>
+    <string name="kuukausi7">7 kuukautta!</string>
+    <string name="kuukausi8">👏👏👏👏👏👏👏👏</string>
+    <string name="kuukausi9">Tupakoinnin lopettamisesta 9 kuukautta! Se on noin 0.1% sinun elinodotuksesta!</string>
+    <string name="kuukausi10">Vau!</string>
+    <string name="kuukausi11">11 Kuukautta! Se on melkein vuosi!</string>
+    <string name="vielavahan">Vielä vähän aikaa!</string>
 
-
-    <string name="vuosi">Vuosi tupakoimatta? Tästä voi olla jopa ylpeä!</string>
-    <string name="eteenpain">🎉🎉🎉🎉</string>
+    <string name="vuosi">ONNEKSI OLKOON!</string>
+    <string name="eteenpain">1 Vuosi polttamatta, mutta monta tupakatonta vuotta vielä edessä!</string>
 
     <string name="paivaDEFAULT">Hämmästyttävää</string>
 

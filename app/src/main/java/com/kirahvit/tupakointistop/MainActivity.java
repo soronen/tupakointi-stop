@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private StorageManager storageManager;
 
     TextView tv;
-    ArrayList<String> viestit = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +30,6 @@ public class MainActivity extends AppCompatActivity {
         storageManager = StorageManager.getStorageManager(this);
 
         TextView tv = findViewById(R.id.tvMotivoivatViestit);
-
-        viestit.add(0, getResources().getString(R.string.paiva0));
-        viestit.add(1, getResources().getString(R.string.paiva1));
-        viestit.add(2, getResources().getString(R.string.paiva2));
 
     }
 
@@ -88,33 +83,38 @@ public class MainActivity extends AppCompatActivity {
         int i = getPaivatTupakoimatta();
         TextView tv = findViewById(R.id.tvMotivoivatViestit);
 
-        // päiville 1-7 on omat viestit, sitten uusi viesti vain joka viikko.
-        if (i % 7 != 0 && i > 7) {
+
+        // päiville 1-7 on omat viestit, sitten uusi viesti vain joka viikko viikkon 12 asti.
+        if (i > 7 && i % 7 != 0 && i <= 84) {
             return;
 
-        // viikon 24 jälkeen ei viestejä kun vasta päivän 365 ja 366 kohdalla.
-        } else if (i > 168 &&  i < 365) {
+        // viikon 12 jälkeen kuukausilla 3-11 omat viestinsä.
+        } else if (i > 84 && i % 30 !=0 && i < 365) {
             return;
-        } else if (i > 366) {
+
+        // 1 vuoden kohdalla viesti
+        } else if (i == 365) {
+            tv.setText(R.string.vuosi);
+            return;
+
+        // 1 vuoden jälkeen vielä viimeinen viesti, sitten ei mitään.
+        } else if (i >= 366) {
             tv.setText(R.string.eteenpain);
+            return;
         }
-
+        // switch case, jossa viesti tavoitteiden kohdalla
         switch (i) {
             case 0:
                 tv.setText(R.string.paiva0);
-                paivatTavoitteeseen = 1;
                 break;
             case 1:
                 tv.setText(R.string.paiva1);
-                paivatTavoitteeseen = 3;
                 break;
             case 2:
                 tv.setText(R.string.paiva2);
-                paivatTavoitteeseen = 1;
                 break;
             case 3:
                 tv.setText(R.string.paiva3);
-                paivatTavoitteeseen = 7;
                 break;
             case 4:
                 tv.setText(R.string.paiva4);
@@ -161,42 +161,35 @@ public class MainActivity extends AppCompatActivity {
             case 84:
                 tv.setText(R.string.viikko12);
                 break;
-            case 91:
-                tv.setText(R.string.viikko13);
+            case 90:
+                tv.setText(R.string.kuukausi3);
                 break;
-            case 98:
-                tv.setText(R.string.viikko14);
+            case 120:
+                tv.setText(R.string.kuukausi4);
                 break;
-            case 105:
-                tv.setText(R.string.viikko15);
+            case 150:
+                tv.setText(R.string.kuukausi5);
                 break;
-            case 112:
-                tv.setText(R.string.viikko16);
+            case 180:
+                tv.setText(R.string.kuukausi6);
                 break;
-            case 119:
-                tv.setText(R.string.viikko17);
+            case 210:
+                tv.setText(R.string.kuukausi7);
                 break;
-            case 126:
-                tv.setText(R.string.viikko18);
+            case 240:
+                tv.setText(R.string.kuukausi8);
                 break;
-            case 133:
-                tv.setText(R.string.viikko19);
+            case 270:
+                tv.setText(R.string.kuukausi9);
                 break;
-            case 140:
-                tv.setText(R.string.viikko20);
+            case 300:
+                tv.setText(R.string.kuukausi10);
                 break;
-            case 147:
-                tv.setText(R.string.viikko21);
+            case 330:
+                tv.setText(R.string.kuukausi11);
                 break;
-            case 154:
-                tv.setText(R.string.viikko22);
-                break;
-            case 161:
-                tv.setText(R.string.viikko23);
-                break;
-            case 168:
-                tv.setText(R.string.viikko24);
-                break;
+            case 360:
+                tv.setText(R.string.vielavahan);
             case 365:
                 tv.setText(R.string.vuosi);
                 break;
