@@ -49,6 +49,10 @@ public class Tilastot extends AppCompatActivity {
 
         saastetutRahat.setText("Olet säästänyt jo "+ String.valueOf(lopullinenhinta)+" euroa!");
 
+        TextView saastettuelinika = (TextView) findViewById(R.id.textViewElinIka);
+
+        saastettuelinika.setText("Olet pidentänyt elinikääsi "+ String.valueOf(elinika)+" tunnilla!");
+
         ListView listView = findViewById(R.id.ListViewOstokset);
 
         listView.setAdapter(new ArrayAdapter<Ostos>(this, android.R.layout.simple_list_item_1,ostokset));
