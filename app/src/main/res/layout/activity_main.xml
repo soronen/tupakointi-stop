@@ -39,12 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
         android:text="0"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/tvMotivoivatViestit"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <TextView
         android:id="@+id/päivättavoitteeseen"
@@ -52,19 +52,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
         android:text="0"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/tvMotivoivatViestit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline6" />
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/pvTupakoimatta"
         android:textSize="16sp"
@@ -78,7 +77,6 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/pvTavoitteeseen"
         android:textSize="16sp"
@@ -132,4 +130,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="110dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
