@@ -2,7 +2,7 @@
     <string name="app_name">Tupakointi Stop</string>
     <string name="notificationchannel">TupakointiStop_Notifications</string>
     <string name="aloitaalusta">Rikkoutuiko putkesi? Ei hätää, voit aloittaa alusta painamalla nappia</string>
-    <string name="tupakanhinta">Tupakka-askin Hinta: </string>
+    <string name="tupakanhinta">Tupakka-askin hinta: </string>
     <string name="tupakanmaara">Kulutettuja askeja päivässä: </string>
     <string name="aloitaalustanappi">Aloita Alusta</string>
     <string name="pvTupakoimatta">Päiviä tupakoimatta</string>
@@ -27,7 +27,7 @@
     <string name="viikko3">Kuinkahan paljon olet jo säästänyt rahaa lopettamalla?</string>
     <string name="viikko4">Yksi tupakka vähentää elinikää keskimäärin 10 minuuttia. Paljon sinä olet säästänyt?</string>
     <string name="viikko5">Viikko 5!</string>
-    <string name="viikko6">Viikko 6 ja hyvin menee!</string>
+    <string name="viikko6">Viikko 🎄 ja hyvin menee!</string>
     <string name="viikko7">7 Viikkoa tupakoimatta! Uskomatonta!</string>
     <string name="viikko8">Kahdeksan viikkoa! Se on melkein 2 kuukautta!</string>
     <string name="viikko9">9 Viikkoa!</string>
@@ -47,7 +47,7 @@
     <string name="vielavahan">Vielä vähän aikaa!</string>
 
     <string name="vuosi">ONNEKSI OLKOON!</string>
-    <string name="eteenpain">1 Vuosi polttamatta, mutta monta tupakatonta vuotta vielä edessä!</string>
+    <string name="eteenpain">1 Vuosi polttamatta, mutta tämä on vasta alku!</string>
 
     <string name="paivaDEFAULT">Hämmästyttävää</string>
 

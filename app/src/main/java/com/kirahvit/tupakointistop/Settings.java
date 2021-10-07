@@ -24,6 +24,8 @@ public class Settings extends AppCompatActivity {
     private float maara;
     private float hinta;
     private int paivatTupakoimatta;
+    private int paivatTavoitteeseen;
+
     private Button buttonNollaa;
 
 
@@ -117,6 +119,7 @@ public class Settings extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(Settings.this, "Päivät nollattu", Toast.LENGTH_SHORT).show();
                 paivatTupakoimatta = 0;
+                paivatTavoitteeseen = 365;
                 Log.d(TAG, "päivät nollattu");
             }
         });
@@ -161,12 +164,14 @@ public class Settings extends AppCompatActivity {
         storageManager.saveValue("hinta", hinta);
         storageManager.saveValue("maara", maara);
         storageManager.saveValue("paivatTupakoimatta", paivatTupakoimatta);
+        storageManager.saveValue("paivatTavoitteeseen", paivatTavoitteeseen);
     }
 
     private void loadValues(){
         hinta = storageManager.loadValue("hinta");
         maara = storageManager.loadValue("maara");
         paivatTupakoimatta = storageManager.loadValueInt("paivatTupakoimatta");
+        paivatTavoitteeseen = storageManager.loadValueInt("paivatTavoitteeseen");
 
         updateUI();
     }

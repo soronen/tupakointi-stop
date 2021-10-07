@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(viewId == R.id.lisääpäiväbutton){
             paivatTupakoimatta++;
+            paivatTavoitteeseen--;
+            updateUI();
         }
         if(viewId == R.id.buttonTilastot){
             goToTilastot();
@@ -45,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
         else if (viewId == R.id.toiseennäkymäänbutton){
             goToSettings();
         }
-
-        updateUI();
     }
 
     private void goToSettings(){
@@ -72,40 +72,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void saveValues(){
         storageManager.saveValue("paivatTupakoimatta", paivatTupakoimatta);
+        storageManager.saveValue("paivatTavoitteeseen", paivatTavoitteeseen);
     }
 
     public void loadValues(){
         paivatTupakoimatta = storageManager.loadValueInt("paivatTupakoimatta");
+        paivatTavoitteeseen = storageManager.loadValueInt("paivatTavoitteeseen");
+
     }
 
+    /**
+     * Päivittää TextViewin, jossa main activiteetin viestit näkyy.
+     * Viesti vaihtuu kun päiviä tupakoimatta arvo saavuttaa switch case:n vaaditun arvon.
+     * 365 päivän kohdalla tavoite muutetaan vielä kerran.
+     *
+     */
 
     public void UpdateTV() {
-        int i = getPaivatTupakoimatta();
+
         TextView tv = findViewById(R.id.tvMotivoivatViestit);
 
 
-        // päiville 1-7 on omat viestit, sitten uusi viesti vain joka viikko viikkon 12 asti.
-        if (i > 7 && i % 7 != 0 && i <= 84) {
-            return;
-
-        // viikon 12 jälkeen kuukausilla 3-11 omat viestinsä.
-        } else if (i > 84 && i % 30 !=0 && i < 365) {
-            return;
-
-        // 1 vuoden kohdalla viesti
-        } else if (i == 365) {
-            tv.setText(R.string.vuosi);
-            return;
-
-        // 1 vuoden jälkeen vielä viimeinen viesti, sitten ei mitään.
-        } else if (i >= 366) {
-            tv.setText(R.string.eteenpain);
-            return;
-        }
-        // switch case, jossa viesti tavoitteiden kohdalla
-        switch (i) {
+        // switch case, joka vaihtaa viestin kun tavoitepäivä on saavutettu
+        switch (getPaivatTupakoimatta()) {
             case 0:
                 tv.setText(R.string.paiva0);
+                paivatTavoitteeseen = 365;
                 break;
             case 1:
                 tv.setText(R.string.paiva1);
@@ -190,14 +182,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 360:
                 tv.setText(R.string.vielavahan);
+                break;
             case 365:
                 tv.setText(R.string.vuosi);
+                paivatTavoitteeseen = 10000;
                 break;
             case 366:
                 tv.setText(R.string.eteenpain);
                 break;
             default:
-                tv.setText(R.string.paivaDEFAULT);
                 break;
         }
     }
@@ -218,6 +211,12 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         loadValues();
+
+        // paivatTavoitteeseen on 0 kun se ladataan ensimmäisen kerran StorageManagerista.
+        if (paivatTavoitteeseen == 0) {
+            paivatTavoitteeseen = 365;
+        }
+
         updateUI();
     }
 
