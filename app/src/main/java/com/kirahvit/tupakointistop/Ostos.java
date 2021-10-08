@@ -16,6 +16,10 @@ public class Ostos {
 
     @Override
     public String toString() {
+        if(kappaleMaara == 0){
+            return "";
+        }
+
         return kappaleMaara + "x " + nimi;
     }
 }

@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Tupakointi Stop</string>
     <string name="notificationchannel">TupakointiStop_Notifications</string>
-    <string name="aloitaalusta">Rikkoutuiko putkesi? Ei hätää, voit aloittaa alusta painamalla nappia</string>
-    <string name="tupakanhinta">Tupakka-askin hinta: </string>
-    <string name="tupakanmaara">Kulutettuja askeja päivässä: </string>
+    <string name="aloitaalusta">Rikkoutuiko putkesi? Ei hätää, voit aloittaa alusta painamalla alla olevaa nappia.</string>
+    <string name="tupakanhinta">Tupakka-askin hinta (euroa): </string>
+    <string name="tupakanmaara">Kulutettuja askeja päivässä (kpl): </string>
     <string name="aloitaalustanappi">Aloita Alusta</string>
     <string name="pvTupakoimatta">Päiviä tupakoimatta</string>
-    <string name="pvTavoitteeseen">Päiviä tavoitteeseen</string>
+    <string name="pvTavoite">Seuraava tavoite</string>
     <string name="lisaapvNappi">Lisää päivä</string>
     <string name="asetukset">Asetukset</string>
     <string name="nappiTilastot">Tilastot</string>
@@ -35,7 +35,9 @@
     <string name="viikko11">Viikko 11</string>
     <string name="viikko12">12 Viikkoa, kohta kolme kuukautta täynnä!</string>
 
-    <string name="kuukausi3">Onneksi olkoon!</string>
+    <string name="kuukausi1">Kuukausi täynnä! Hienoa työtä!</string>
+    <string name="kuukausi2">Kaksi kuukautta! Sinnikkyys palkitaan.</string>
+    <string name="kuukausi3">Onneksi olkoon! Kolme kuukautta tupakoimatta on merkittävä saavutus!</string>
     <string name="kuukausi4">4. Kuukausi tupakoimatta!</string>
     <string name="kuukausi5">Fem månader!</string>
     <string name="kuukausi6">🎄🌙!</string>
