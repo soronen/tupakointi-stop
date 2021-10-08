@@ -2,21 +2,18 @@ package com.kirahvit.tupakointistop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private int paivatTupakoimatta;
-    private int paivatTavoitteeseen;
+    private int seuraavaTavoite;
 
     private StorageManager storageManager;
 
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(viewId == R.id.lisääpäiväbutton){
             paivatTupakoimatta++;
-            paivatTavoitteeseen--;
+            updateTavoite();
             updateUI();
         }
         if(viewId == R.id.buttonTilastot){
@@ -62,23 +59,22 @@ public class MainActivity extends AppCompatActivity {
     public void updateUI(){
 
         TextView paivatTupakoimattaView = findViewById(R.id.päivättupakoimatta);
-        TextView paivatTavoitteeseenView = findViewById(R.id.päivättavoitteeseen);
+        TextView paivatTavoitteeseenView = findViewById(R.id.päivättavoite);
 
         paivatTupakoimattaView.setText(String.valueOf(paivatTupakoimatta));
-        paivatTavoitteeseenView.setText(String.valueOf(paivatTavoitteeseen));
+        paivatTavoitteeseenView.setText(String.valueOf(seuraavaTavoite));
 
-        UpdateTV();
+        UpdateViesti();
     }
 
     public void saveValues(){
         storageManager.saveValue("paivatTupakoimatta", paivatTupakoimatta);
-        storageManager.saveValue("paivatTavoitteeseen", paivatTavoitteeseen);
+        storageManager.saveValue("seuraavaTavoite", seuraavaTavoite);
     }
 
     public void loadValues(){
         paivatTupakoimatta = storageManager.loadValueInt("paivatTupakoimatta");
-        paivatTavoitteeseen = storageManager.loadValueInt("paivatTavoitteeseen");
-
+        seuraavaTavoite = storageManager.loadValueInt("seuraavaTavoite");
     }
 
     /**
@@ -88,16 +84,16 @@ public class MainActivity extends AppCompatActivity {
      *
      */
 
-    public void UpdateTV() {
+    public void UpdateViesti() {
 
         TextView tv = findViewById(R.id.tvMotivoivatViestit);
+        tv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
 
         // switch case, joka vaihtaa viestin kun tavoitepäivä on saavutettu
-        switch (getPaivatTupakoimatta()) {
+        switch (paivatTupakoimatta) {
             case 0:
                 tv.setText(R.string.paiva0);
-                paivatTavoitteeseen = 365;
                 break;
             case 1:
                 tv.setText(R.string.paiva1);
@@ -129,6 +125,9 @@ public class MainActivity extends AppCompatActivity {
             case 28:
                 tv.setText(R.string.viikko4);
                 break;
+            case 30:
+                tv.setText(R.string.kuukausi1);
+                break;
             case 35:
                 tv.setText(R.string.viikko5);
                 break;
@@ -140,6 +139,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 56:
                 tv.setText(R.string.viikko8);
+                break;
+            case 60:
+                tv.setText(R.string.kuukausi2);
                 break;
             case 63:
                 tv.setText(R.string.viikko9);
@@ -185,19 +187,87 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 365:
                 tv.setText(R.string.vuosi);
-                paivatTavoitteeseen = 10000;
                 break;
             case 366:
                 tv.setText(R.string.eteenpain);
                 break;
             default:
+                tv.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                tv.setText(generateRandomText());
                 break;
         }
     }
 
+    private String generateRandomText(){
+        Random r = new Random();
+        String text = "";
 
+        int randomInt = r.nextInt(100);
+        if(randomInt < 10){
+            text = "Jatka samaan malliin!";
 
+        }else if(randomInt < 20){
+            text = "Ja taas tuli säästöjä! Lompakkosi iloitsee.";
 
+        }else if(randomInt < 30){
+            text = "Loistava valinta! Pidensit juuri elinikääsi!";
+
+        }else if(randomInt < 40){
+            text = "Yksi päivä pulkassa lisää!";
+
+        }else if(randomInt < 50){
+            text = "Nyt on putki päällä. Älä anna periksi!";
+
+        }else if(randomInt < 60){
+            text = "Keuhkosi kiittävät!";
+
+        }else if(randomInt < 70){
+            text = "Tupakoimattomuus on ilmastoteko!";
+
+        }else if(randomInt < 80){
+            text = "Hampaasi suorastaan säihkyvät!";
+
+        }else if(randomInt < 90){
+            text = "Ikenesi ovat tyytyväisiä päätökseesi.";
+
+        }else if(randomInt < 100){
+            text = "Hienosti tehty! Seuraava tavoite on taas päivän lähempänä!";
+        }
+
+        return text;
+    }
+
+    private void updateTavoite(){
+        if(paivatTupakoimatta != seuraavaTavoite){
+            return;
+        }
+
+        if(seuraavaTavoite % 30 == 0 && seuraavaTavoite != 330){
+            seuraavaTavoite += 30;
+            return;
+        }
+
+        switch(seuraavaTavoite){
+            case 3:
+                seuraavaTavoite = 7;
+                break;
+            case 7:
+                seuraavaTavoite = 14;
+                break;
+            case 14:
+                seuraavaTavoite = 21;
+                break;
+            case 21:
+                seuraavaTavoite = 30;
+                break;
+            case 330:
+                seuraavaTavoite = 365;
+                break;
+            case 365:
+                seuraavaTavoite = 390;
+                break;
+        }
+    }
 
     @Override
     protected void onPause() {
@@ -212,15 +282,11 @@ public class MainActivity extends AppCompatActivity {
 
         loadValues();
 
-        // paivatTavoitteeseen on 0 kun se ladataan ensimmäisen kerran StorageManagerista.
-        if (paivatTavoitteeseen == 0) {
-            paivatTavoitteeseen = 365;
+        // seuraavaTavoite on 0 kun se ladataan ensimmäisen kerran StorageManagerista.
+        if (seuraavaTavoite == 0) {
+            seuraavaTavoite = 3;
         }
 
         updateUI();
-    }
-
-    public int getPaivatTupakoimatta() {
-        return paivatTupakoimatta;
     }
 }

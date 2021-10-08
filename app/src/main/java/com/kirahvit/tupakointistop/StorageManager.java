@@ -65,4 +65,16 @@ public class StorageManager {
         editor.commit();
         Log.d("logger", name + " value: " + value + " saved.");
     }
+
+    /**
+     * Poistaa tallennetun tunniste/arvoparin
+     * @param name tunnistenimi
+     */
+    public void removeValue(String name){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.remove(name);
+        editor.commit();
+        Log.d("logger", name + " removed.");
+    }
 }
