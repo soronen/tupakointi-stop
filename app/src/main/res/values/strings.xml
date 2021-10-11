@@ -34,7 +34,6 @@
     <string name="viikko10">10 Viikkoa! Miten paljon tupakkataukoja olet säästänyt päivässä?</string>
     <string name="viikko11">Viikko 11</string>
     <string name="viikko12">12 Viikkoa, kohta kolme kuukautta täynnä!</string>
-
     <string name="kuukausi1">Kuukausi täynnä! Hienoa työtä!</string>
     <string name="kuukausi2">Kaksi kuukautta! Sinnikkyys palkitaan.</string>
     <string name="kuukausi3">Onneksi olkoon! Kolme kuukautta tupakoimatta on merkittävä saavutus!</string>
@@ -47,12 +46,42 @@
     <string name="kuukausi10">Vau!</string>
     <string name="kuukausi11">11 Kuukautta! Se on melkein vuosi!</string>
     <string name="vielavahan">Vielä vähän aikaa!</string>
-
     <string name="vuosi">ONNEKSI OLKOON!</string>
     <string name="eteenpain">1 Vuosi polttamatta, mutta tämä on vasta alku!</string>
-
     <string name="paivaDEFAULT">Hämmästyttävää</string>
 
+    <!--viestitRandom-->
+    <string name="randomviesti1">Jatka samaan malliin!</string>
+    <string name="randomviesti2">Ja taas tuli säästöjä! Lompakkosi iloitsee.</string>
+    <string name="randomviesti3">Loistava valinta! Pidensit juuri elinikääsi!</string>
+    <string name="randomviesti4">Yksi päivä pulkassa lisää!</string>
+    <string name="randomviesti5">Nyt on putki päällä. Älä anna periksi!</string>
+    <string name="randomviesti6">Keuhkosi kiittävät!</string>
+    <string name="randomviesti7">Tupakoimattomuus on ilmastoteko!</string>
+    <string name="randomviesti8">Hampaasi suorastaan säihkyvät!</string>
+    <string name="randomviesti9">Ikenesi ovat tyytyväisiä päätökseesi.</string>
+    <string name="randomviesti10">Hienosti tehty! Seuraava tavoite on taas päivän lähempänä!</string>
+
+
+    <!--Settings-->
+    <string name="aloitaAlustaOletkoVarma">Oletko varma että haluat nollata päivät?</string>
+    <string name="paivatNollattu">päivät nollattu</string>
+    <string name="toimintoPeruutettu">Toiminto peruutettu</string>
+    <string name="nollausPeruutettu">nollaus peruutettu</string>
+    <string name="kylla">Kyllä</string>
+    <string name="peruuta">Peruuta</string>
+
+
+    <!--Tilastot-->
+    <string name="oletSaastanytJo">Olet säästänyt jo </string>
+    <string name="oletPidentanytElinikaasi">Olet pidentänyt elinikääsi </string>
+    <string name="euroa"> euroa!</string>
+    <string name="tunnilla"> tunnilla!</string>
+    <string name="samsungGalaxyA03">Samsung Galaxy AO3s älypuhelin</string>
+    <string name="nhl22">NHL 22</string>
+    <string name="linnanmakiranneke">Linnanmäki ranneke</string>
+    <string name="finnkinoleffalippu">Finnkino leffalippu</string>
+    <string name="playstation5">PlayStation 5</string>
 
 
 </resources>
