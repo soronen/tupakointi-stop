@@ -1,30 +1,32 @@
 package com.kirahvit.tupakointistop;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Settings extends AppCompatActivity {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+public class SettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settingslog";
 
     private float maara;
     private float hinta;
 
     private StorageManager storageManager;
+    private BottomNavigationView navigationView;
 
 
     @Override
@@ -34,6 +36,10 @@ public class Settings extends AppCompatActivity {
         Log.d(TAG, "onCreate() called");
 
         storageManager = StorageManager.getStorageManager(this);
+
+        navigationView = findViewById(R.id.NavigationViewBottom);
+        setNavigationListeners();
+        navigationView.setSelectedItemId(R.id.settings);
 
 
         // kun tupakoille syötetään hinta tai määrä, nämä tallentavat ne aktiviteetin muuttujiin.
@@ -75,7 +81,6 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-
         editMaara.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
@@ -108,7 +113,7 @@ public class Settings extends AppCompatActivity {
         builder.setPositiveButton("Kyllä", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(Settings.this, "Päivät nollattu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsActivity.this, "Päivät nollattu", Toast.LENGTH_SHORT).show();
                 nollaa();
                 Log.d(TAG, "päivät nollattu");
             }
@@ -116,7 +121,7 @@ public class Settings extends AppCompatActivity {
         builder.setNegativeButton("Peruuta", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(Settings.this, "Toiminto peruutettu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsActivity.this, "Toiminto peruutettu", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "nollaus peruutettu");
             }
         });
@@ -169,5 +174,33 @@ public class Settings extends AppCompatActivity {
     private void hideKeyboard(View view) {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void setNavigationListeners(){
+        // Back button
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+        // NavigationView
+        navigationView.setOnItemSelectedListener(item ->{
+            switch (item.getItemId()){
+                case R.id.insights:
+                    startActivity(new Intent(getApplicationContext(), TilastotActivity.class));
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+                    break;
+                case R.id.home:
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+                    break;
+            }
+
+            return true;
+        });
     }
 }

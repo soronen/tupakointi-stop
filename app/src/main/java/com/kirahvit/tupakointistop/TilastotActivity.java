@@ -1,16 +1,19 @@
 package com.kirahvit.tupakointistop;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
-public class Tilastot extends AppCompatActivity {
+public class TilastotActivity extends AppCompatActivity {
 
     private float hinta;
     private float maara;
@@ -18,6 +21,7 @@ public class Tilastot extends AppCompatActivity {
     private float lopullinenhinta;
     private float elinika;
     private StorageManager storageManager;
+    private BottomNavigationView navigationView;
 
     private ArrayList<Ostos> ostokset = new ArrayList<Ostos>();
 
@@ -28,8 +32,9 @@ public class Tilastot extends AppCompatActivity {
 
         storageManager = StorageManager.getStorageManager(this);
 
-        EditText editHinta = (EditText) findViewById(R.id.editTextHinta);
-        EditText editMaara = (EditText) findViewById(R.id.editTextMaara);
+        navigationView = findViewById(R.id.NavigationViewBottom);
+        setNavigationListeners();
+        navigationView.setSelectedItemId(R.id.insights);
 
         loadValues();
 
@@ -66,5 +71,33 @@ public class Tilastot extends AppCompatActivity {
 
         lopullinenhinta = (maara * hinta * paivatTupakoimatta);
         elinika = (maara * paivatTupakoimatta * 5);
+    }
+
+    private void setNavigationListeners(){
+        // Back button
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+        // NavigationView
+        navigationView.setOnItemSelectedListener(item ->{
+            switch (item.getItemId()){
+                case R.id.home:
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                    break;
+                case R.id.settings:
+                    startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                    break;
+            }
+
+            return true;
+        });
     }
 }
