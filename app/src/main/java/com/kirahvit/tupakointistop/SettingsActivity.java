@@ -114,19 +114,19 @@ public class SettingsActivity extends AppCompatActivity {
     // Lisävahvistus, ettei päiviä nollattaisi vahinnossa (kyllä / peruuta viesti nollaa painikkeen painamisen jälkeen).
     private void CreateAlertDialogue() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Oletko varma että haluat nollata päivät?");
-        builder.setPositiveButton("Kyllä", new DialogInterface.OnClickListener() {
+        builder.setMessage(R.string.asetuksetNollausOletkoVarma);
+        builder.setPositiveButton(R.string.kylla, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(SettingsActivity.this, "Päivät nollattu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsActivity.this, R.string.paivatNollattu, Toast.LENGTH_SHORT).show();
                 nollaa();
                 Log.d(TAG, "päivät nollattu");
             }
         });
-        builder.setNegativeButton("Peruuta", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.peruuta, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(SettingsActivity.this, "Toiminto peruutettu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsActivity.this, R.string.toimintoPeruutettu, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "nollaus peruutettu");
             }
         });

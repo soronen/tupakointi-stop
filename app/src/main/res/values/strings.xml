@@ -85,6 +85,7 @@
     <string name="linnanmakiranneke">Linnanmäki ranneke</string>
     <string name="finnkinoleffalippu">Finnkino leffalippu</string>
     <string name="playstation5">PlayStation 5</string>
+    <string name="asetuksetNollausOletkoVarma">Oletko varma että haluat nollata päivät?</string>
 
 
 </resources>
