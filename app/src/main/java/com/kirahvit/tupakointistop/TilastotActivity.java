@@ -13,6 +13,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
+/**
+ * Luokka sisältää tilastoja eliniän pidentymisestä, säästetystä rahamäärästä ja listan ostoksista
+ */
+
 public class TilastotActivity extends AppCompatActivity {
 
     private float hinta;
