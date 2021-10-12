@@ -11,8 +11,10 @@
     <string name="asetukset">Asetukset</string>
     <string name="nappiTilastot">Tilastot</string>
 
-
-
+    <!--menu-->
+    <string name="home">Koti</string>
+    <string name="settings">Asetukset</string>
+    <string name="insights">Tilastot</string>
 
     <!--viestit-->
     <string name="paiva0">Tästä se alkaa!</string>
