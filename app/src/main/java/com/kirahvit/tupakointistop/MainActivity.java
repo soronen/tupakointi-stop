@@ -13,6 +13,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Random;
 
+/**
+ * Sovelluksen kotinäkymä
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private int paivatTupakoimatta;
