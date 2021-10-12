@@ -194,34 +194,34 @@ public class MainActivity extends AppCompatActivity {
 
         int randomInt = r.nextInt(100);
         if(randomInt < 10){
-            text = "Jatka samaan malliin!";
+            text = getString(R.string.randomviesti1);
 
         }else if(randomInt < 20){
-            text = "Ja taas tuli säästöjä! Lompakkosi iloitsee.";
+            text = getString(R.string.randomviesti2);
 
         }else if(randomInt < 30){
-            text = "Loistava valinta! Pidensit juuri elinikääsi!";
+            text = getString(R.string.randomviesti3);
 
         }else if(randomInt < 40){
-            text = "Yksi päivä pulkassa lisää!";
+            text = getString(R.string.randomviesti4);
 
         }else if(randomInt < 50){
-            text = "Nyt on putki päällä. Älä anna periksi!";
+            text = getString(R.string.randomviesti5);
 
         }else if(randomInt < 60){
-            text = "Keuhkosi kiittävät!";
+            text = getString(R.string.randomviesti6);
 
         }else if(randomInt < 70){
-            text = "Tupakoimattomuus on ilmastoteko!";
+            text = getString(R.string.randomviesti7);
 
         }else if(randomInt < 80){
-            text = "Hampaasi suorastaan säihkyvät!";
+            text = getString(R.string.randomviesti8);
 
         }else if(randomInt < 90){
-            text = "Ikenesi ovat tyytyväisiä päätökseesi.";
+            text = getString(R.string.randomviesti9);
 
         }else if(randomInt < 100){
-            text = "Hienosti tehty! Seuraava tavoite on taas päivän lähempänä!";
+            text = getString(R.string.randomviesti10);
         }
 
         return text;

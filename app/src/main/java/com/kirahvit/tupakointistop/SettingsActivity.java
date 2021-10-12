@@ -19,6 +19,11 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * Sovelluksen Asetukset-näkymä, sisältää siinä käytettyjä luokkia
+ *
+ */
+
 public class SettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settingslog";
 
@@ -157,6 +162,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void nollaa(){
         storageManager.removeValue("paivatTupakoimatta");
         storageManager.removeValue("seuraavaTavoite");
+
     }
 
     private void saveValues(){
