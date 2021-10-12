@@ -51,19 +51,6 @@
     <string name="vuosi">ONNEKSI OLKOON!</string>
     <string name="eteenpain">1 Vuosi polttamatta, mutta tämä on vasta alku!</string>
     <string name="paivaDEFAULT">Hämmästyttävää</string>
-    <string name="randomviesti1">Jatka samaan malliin!</string>
-    <string name="randomviesti2">Ja taas tuli säästöjä! Lompakkosi iloitsee.</string>
-    <string name="randomviesti3">Loistava valinta! Pidensit juuri elinikääsi!</string>
-    <string name="randomviesti4">Yksi päivä pulkassa lisää!</string>
-    <string name="randomviesti5">Nyt on putki päällä. Älä anna periksi!</string>
-    <string name="randomviesti6">Keuhkosi kiittävät!</string>
-    <string name="randomviesti7">Tupakoimattomuus on ilmastoteko!</string>
-    <string name="randomviesti8">Hampaasi suorastaan säihkyvät!</string>
-    <string name="randomviesti9">Ikenesi ovat tyytyväisiä päätökseesi.</string>
-    <string name="randomviesti10">Hienosti tehty! Seuraava tavoite on taas päivän lähempänä!</string>
-
-    <!--viestitRandom-->
-
 
     <!--viestitRandom-->
     <string name="randomviesti1">Jatka samaan malliin!</string>
@@ -76,6 +63,7 @@
     <string name="randomviesti8">Hampaasi suorastaan säihkyvät!</string>
     <string name="randomviesti9">Ikenesi ovat tyytyväisiä päätökseesi.</string>
     <string name="randomviesti10">Hienosti tehty! Seuraava tavoite on taas päivän lähempänä!</string>
+
 
 
     <!--Settings-->
