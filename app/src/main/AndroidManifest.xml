@@ -10,13 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TupakointiStop" >
         <activity
-            android:name=".Tilastot"
-            android:exported="true"
-            android:parentActivityName=".MainActivity" />
+            android:name=".TilastotActivity"
+            android:exported="true" />
         <activity
-            android:name=".Settings"
-            android:exported="true"
-            android:parentActivityName=".MainActivity" >
+            android:name=".SettingsActivity"
+            android:exported="true">
         </activity>
         <activity
             android:name=".MainActivity"

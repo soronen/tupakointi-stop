@@ -1,5 +1,6 @@
 package com.kirahvit.tupakointistop;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Random;
 
@@ -16,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private int seuraavaTavoite;
 
     private StorageManager storageManager;
-
-    TextView tv;
+    private BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         storageManager = StorageManager.getStorageManager(this);
 
-        TextView tv = findViewById(R.id.tvMotivoivatViestit);
+        navigationView = findViewById(R.id.NavigationViewBottom);
+        setNavigationListeners();
 
     }
 
@@ -38,23 +41,7 @@ public class MainActivity extends AppCompatActivity {
             updateTavoite();
             updateUI();
         }
-        if(viewId == R.id.buttonTilastot){
-            goToTilastot();
-        }
-        else if (viewId == R.id.toiseennäkymäänbutton){
-            goToSettings();
-        }
     }
-
-    private void goToSettings(){
-        Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);
-    }
-    private void goToTilastot(){
-        Intent intent = new Intent(this, Tilastot.class);
-        startActivity(intent);
-    }
-
 
     public void updateUI(){
 
@@ -63,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
         paivatTupakoimattaView.setText(String.valueOf(paivatTupakoimatta));
         paivatTavoitteeseenView.setText(String.valueOf(seuraavaTavoite));
+
+        navigationView = findViewById(R.id.NavigationViewBottom);
+        navigationView.setSelectedItemId(R.id.home);
 
         UpdateViesti();
     }
@@ -204,34 +194,34 @@ public class MainActivity extends AppCompatActivity {
 
         int randomInt = r.nextInt(100);
         if(randomInt < 10){
-            text = "Jatka samaan malliin!";
+            text = getString(R.string.randomviesti1);
 
         }else if(randomInt < 20){
-            text = "Ja taas tuli säästöjä! Lompakkosi iloitsee.";
+            text = getString(R.string.randomviesti2);
 
         }else if(randomInt < 30){
-            text = "Loistava valinta! Pidensit juuri elinikääsi!";
+            text = getString(R.string.randomviesti3);
 
         }else if(randomInt < 40){
-            text = "Yksi päivä pulkassa lisää!";
+            text = getString(R.string.randomviesti4);
 
         }else if(randomInt < 50){
-            text = "Nyt on putki päällä. Älä anna periksi!";
+            text = getString(R.string.randomviesti5);
 
         }else if(randomInt < 60){
-            text = "Keuhkosi kiittävät!";
+            text = getString(R.string.randomviesti6);
 
         }else if(randomInt < 70){
-            text = "Tupakoimattomuus on ilmastoteko!";
+            text = getString(R.string.randomviesti7);
 
         }else if(randomInt < 80){
-            text = "Hampaasi suorastaan säihkyvät!";
+            text = getString(R.string.randomviesti8);
 
         }else if(randomInt < 90){
-            text = "Ikenesi ovat tyytyväisiä päätökseesi.";
+            text = getString(R.string.randomviesti9);
 
         }else if(randomInt < 100){
-            text = "Hienosti tehty! Seuraava tavoite on taas päivän lähempänä!";
+            text = getString(R.string.randomviesti10);
         }
 
         return text;
@@ -288,5 +278,31 @@ public class MainActivity extends AppCompatActivity {
         }
 
         updateUI();
+    }
+
+    private void setNavigationListeners(){
+        // Back button
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+        // NavigationView
+        navigationView.setOnItemSelectedListener(item ->{
+            switch (item.getItemId()){
+                case R.id.insights:
+                    startActivity(new Intent(getApplicationContext(), TilastotActivity.class));
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+                    break;
+                case R.id.settings:
+                    startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                    break;
+            }
+
+            return true;
+        });
     }
 }

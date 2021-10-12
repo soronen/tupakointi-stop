@@ -44,6 +44,11 @@ public class StorageManager {
         return loadedValue;
     }
 
+    /**
+     * Lataa arvon sharedpreferensseistä
+     * @param name sharedpreferenssin avain
+     * @return avain parin int arvo
+     */
     public int loadValueInt(String name){
 
         int loadedValue = Math.round(sharedPreferences.getFloat(name, 0));
