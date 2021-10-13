@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_launcher_round);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         storageManager = StorageManager.getStorageManager(this);
 

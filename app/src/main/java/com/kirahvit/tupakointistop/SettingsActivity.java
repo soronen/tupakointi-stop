@@ -40,6 +40,8 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         Log.d(TAG, "onCreate() called");
+        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_launcher_round);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         storageManager = StorageManager.getStorageManager(this);
 

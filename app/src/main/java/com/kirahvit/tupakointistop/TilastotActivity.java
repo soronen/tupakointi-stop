@@ -36,6 +36,9 @@ public class TilastotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tilastot);
 
+        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_launcher_round);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         storageManager = StorageManager.getStorageManager(this);
 
         navigationView = findViewById(R.id.NavigationViewBottom);
