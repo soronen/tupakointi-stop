@@ -1,5 +1,6 @@
 package com.kirahvit.tupakointistop;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -11,6 +12,10 @@ import android.util.Log;
 
 public class StorageManager {
 
+    /**
+     * Singleton instanssi
+     */
+    @SuppressLint("StaticFieldLeak")
     public static StorageManager storageManager_Instance;
 
     private Context context;
@@ -21,12 +26,14 @@ public class StorageManager {
     }
 
     /**
-     * Singleton
+     * Palauttaa viittauksen singleton instanssiin
+     * @param context kutsuvan aktiviteetin context (vaaditaan sharedPreferences:n hakemiseen)
+     * @return viittaus Singleton instanssiin storageManager_Instance
      */
     public static StorageManager getStorageManager(Context context) {
 
         if (storageManager_Instance == null) {
-            storageManager_Instance = new StorageManager(context);
+            storageManager_Instance = new StorageManager(context.getApplicationContext());
         }
         return storageManager_Instance;
     }
@@ -34,7 +41,7 @@ public class StorageManager {
     /**
      * Palauttaa tallennetun arvon, joka vastaa annettua tunnistetta
      * @param name tunnistenimi, jolla haetaan tallennettua arvoa
-     * @return int loadedValue löydetty arvo, oletusarvo 0
+     * @return float, löydetty arvo, oletusarvo 0
      */
     public float loadValue(String name){
 
@@ -45,9 +52,9 @@ public class StorageManager {
     }
 
     /**
-     * Lataa arvon sharedpreferensseistä
-     * @param name sharedpreferenssin avain
-     * @return avain parin int arvo
+     * Palauttaa tallennetun arvon, joka vastaa annettua tunnistetta, muuttaa sen int -muotoon
+     * @param name tunnistenimi, jolla haetaan tallennettua arvoa
+     * @return int, löydetty arvo, oletusarvo 0
      */
     public int loadValueInt(String name){
 
@@ -67,7 +74,7 @@ public class StorageManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putFloat(name, value);
-        editor.commit();
+        editor.apply();
         Log.d("logger", name + " value: " + value + " saved.");
     }
 
@@ -79,7 +86,7 @@ public class StorageManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.remove(name);
-        editor.commit();
+        editor.apply();
         Log.d("logger", name + " removed.");
     }
 }

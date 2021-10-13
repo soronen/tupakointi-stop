@@ -3,6 +3,7 @@ package com.kirahvit.tupakointistop;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -14,7 +15,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 /**
- * Luokka sisältää tilastoja eliniän pidentymisestä, säästetystä rahamäärästä ja listan ostoksista
+ * Sovelluksen Tilasto -näkymä sisältää käyttäjädataa havainnollistavia toimintoja (elinikä, säästöt, rahan käyttökohteet)
+ * @author Rasmus, Petrus, Eetu
  */
 
 public class TilastotActivity extends AppCompatActivity {
@@ -27,7 +29,7 @@ public class TilastotActivity extends AppCompatActivity {
     private StorageManager storageManager;
     private BottomNavigationView navigationView;
 
-    private ArrayList<Ostos> ostokset = new ArrayList<Ostos>();
+    private ArrayList<Ostos> ostokset = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class TilastotActivity extends AppCompatActivity {
 
         loadValues();
 
-        //Tähän ostokset
+        // Ostosten lisäys
         ostokset.add(new Ostos("Finnkino leffalippu", 8, lopullinenhinta));
         ostokset.add(new Ostos("Linnanmäki ranneke", 40, lopullinenhinta));
         ostokset.add(new Ostos("NHL 22", 60, lopullinenhinta));
@@ -52,22 +54,20 @@ public class TilastotActivity extends AppCompatActivity {
         updateUI();
     }
 
+    // Layoutin päivitys
+    @SuppressLint("SetTextI18n")
     private void updateUI(){
-
         TextView saastetutRahat = (TextView) findViewById(R.id.textViewSaastetutRahat);
-
-        saastetutRahat.setText("Olet säästänyt jo "+ String.valueOf(lopullinenhinta)+" euroa!");
+        saastetutRahat.setText("Olet säästänyt jo "+ lopullinenhinta +" euroa!");
 
         TextView saastettuelinika = (TextView) findViewById(R.id.textViewElinIka);
-
-        saastettuelinika.setText("Olet pidentänyt elinikääsi "+ String.valueOf(elinika)+" tunnilla!");
+        saastettuelinika.setText("Olet pidentänyt elinikääsi "+ elinika +" tunnilla!");
 
         ListView listView = findViewById(R.id.ListViewOstokset);
-
-        listView.setAdapter(new ArrayAdapter<Ostos>(this, android.R.layout.simple_list_item_1,ostokset));
-
+        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,ostokset));
     }
 
+    // Arvojen lataus
     private void loadValues(){
         hinta = storageManager.loadValue("hinta");
         maara = storageManager.loadValue("maara");
@@ -77,6 +77,8 @@ public class TilastotActivity extends AppCompatActivity {
         elinika = (maara * paivatTupakoimatta * 5);
     }
 
+    // Navigaatiotoimintojen Listenerit
+    @SuppressLint("NonConstantResourceId")
     private void setNavigationListeners(){
         // Back button
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {

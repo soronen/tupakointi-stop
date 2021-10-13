@@ -3,6 +3,7 @@ package com.kirahvit.tupakointistop;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import java.util.Random;
 
 /**
  * Sovelluksen kotinäkymä
+ * @author Rasmus, Petrus, Eetu
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodi vastaa "lisää päivä" -napin painallukseen
+     * @param view viittaus clickattuun viewiin
+     */
     public void onButtonClick(View view){
         int viewId = view.getId();
 
@@ -47,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void updateUI(){
+    //Layoutin päivitys
+    private void updateUI(){
 
         TextView paivatTupakoimattaView = findViewById(R.id.päivättupakoimatta);
         TextView paivatTavoitteeseenView = findViewById(R.id.päivättavoite);
@@ -58,33 +65,29 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.NavigationViewBottom);
         navigationView.setSelectedItemId(R.id.home);
 
-        UpdateViesti();
+        updateViesti();
     }
 
-    public void saveValues(){
+    //Arvojen tallentaminen
+    private void saveValues(){
         storageManager.saveValue("paivatTupakoimatta", paivatTupakoimatta);
         storageManager.saveValue("seuraavaTavoite", seuraavaTavoite);
     }
 
-    public void loadValues(){
+    //Arvojen hakeminen
+    private void loadValues(){
         paivatTupakoimatta = storageManager.loadValueInt("paivatTupakoimatta");
         seuraavaTavoite = storageManager.loadValueInt("seuraavaTavoite");
     }
 
-    /**
-     * Päivittää TextViewin, jossa main activiteetin viestit näkyy.
-     * Viesti vaihtuu kun päiviä tupakoimatta arvo saavuttaa switch case:n vaaditun arvon.
-     * 365 päivän kohdalla tavoite muutetaan vielä kerran.
-     *
-     */
-
-    public void UpdateViesti() {
+    //Päivittää TextViewin, jossa main activiteetin viestit näkyy.
+    //Viesti vaihtuu kun päiviä tupakoimatta arvo saavuttaa switch case:n vaaditun arvon.
+    private void updateViesti() {
 
         TextView tv = findViewById(R.id.tvMotivoivatViestit);
         tv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
-
-        // switch case, joka vaihtaa viestin kun tavoitepäivä on saavutettu
+        //switch case, joka vaihtaa viestin kun tavoitepäivä on saavutettu
         switch (paivatTupakoimatta) {
             case 0:
                 tv.setText(R.string.paiva0);
@@ -192,9 +195,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //  Generoi ja palauttaa 'satunnaisen' tekstin
     private String generateRandomText(){
         Random r = new Random();
-        String text = "";
+        String text;
 
         int randomInt = r.nextInt(100);
         if(randomInt < 10){
@@ -224,13 +228,14 @@ public class MainActivity extends AppCompatActivity {
         }else if(randomInt < 90){
             text = getString(R.string.randomviesti9);
 
-        }else if(randomInt < 100){
+        }else {
             text = getString(R.string.randomviesti10);
         }
 
         return text;
     }
 
+    //Päivittää tavoitteen
     private void updateTavoite(){
         if(paivatTupakoimatta != seuraavaTavoite){
             return;
@@ -276,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
 
         loadValues();
 
-        // seuraavaTavoite on 0 kun se ladataan ensimmäisen kerran StorageManagerista.
+        //Jos tavoitetta ei ole (default: 0), ensimmäinen tavoite 3
         if (seuraavaTavoite == 0) {
             seuraavaTavoite = 3;
         }
@@ -284,6 +289,8 @@ public class MainActivity extends AppCompatActivity {
         updateUI();
     }
 
+    // Navigaatiotoimintojen Listenerit
+    @SuppressLint("NonConstantResourceId")
     private void setNavigationListeners(){
         // Back button
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {

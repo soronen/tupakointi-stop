@@ -19,7 +19,8 @@ public class Notifications {
     NotificationManager notificationManager;
 
     /**
-     * Singleton
+     * Palauttaa viittauksen singleton instanssiin
+     * @return viittaus Singleton instanssiin notifications_Instance
      */
     public static Notifications getNotifications() {
 

@@ -3,6 +3,7 @@ package com.kirahvit.tupakointistop;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -20,8 +21,8 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
- * Sovelluksen Asetukset-näkymä, sisältää siinä käytettyjä luokkia
- *
+ * Sovelluksen Asetukset-näkymä, sisältää käyttäjän datan syöttöön ja käsittelyyn liittyviä toimintoja
+ * @author Rasmus, Petrus, Eetu
  */
 
 public class SettingsActivity extends AppCompatActivity {
@@ -46,63 +47,50 @@ public class SettingsActivity extends AppCompatActivity {
         setNavigationListeners();
         navigationView.setSelectedItemId(R.id.settings);
 
-
         // kun tupakoille syötetään hinta tai määrä, nämä tallentavat ne aktiviteetin muuttujiin.
         EditText editHinta = (EditText) findViewById(R.id.editTextHinta);
         EditText editMaara = (EditText) findViewById(R.id.editTextMaara);
 
-        editHinta.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if(!hasFocus){
-                    hinta = Float.parseFloat(editHinta.getText().toString());
-                    hideKeyboard(view);
-                    Log.d(TAG, "onFocusChange: hinta");
-                }
+        editHinta.setOnFocusChangeListener((view, hasFocus) -> {
+            if(!hasFocus){
+                hinta = Float.parseFloat(editHinta.getText().toString());
+                hideKeyboard(view);
+                Log.d(TAG, "onFocusChange: hinta");
             }
         });
 
-        editMaara.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if(!hasFocus){
-                    maara = Float.parseFloat(editMaara.getText().toString());
-                    hideKeyboard(view);
-                    Log.d(TAG, "onFocusChange: maara");
-                }
+        editMaara.setOnFocusChangeListener((view, hasFocus) -> {
+            if(!hasFocus){
+                maara = Float.parseFloat(editMaara.getText().toString());
+                hideKeyboard(view);
+                Log.d(TAG, "onFocusChange: maara");
             }
         });
 
-        editHinta.setOnEditorActionListener(new EditText.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    hinta = Float.parseFloat(editHinta.getText().toString());
-                    hideKeyboard(view);
-                    Log.d(TAG, "onEditorAction: hinta");
-                    return true;
-                }
-                return false;
+        editHinta.setOnEditorActionListener((view, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                hinta = Float.parseFloat(editHinta.getText().toString());
+                hideKeyboard(view);
+                Log.d(TAG, "onEditorAction: hinta");
+                return true;
             }
+            return false;
         });
 
-        editMaara.setOnEditorActionListener(new EditText.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    maara = Float.parseFloat(editMaara.getText().toString());
-                    hideKeyboard(view);
-                    Log.d(TAG, "onEditorAction: maara");
-                    return true;
-                }
-                return false;
+        editMaara.setOnEditorActionListener((view, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                maara = Float.parseFloat(editMaara.getText().toString());
+                hideKeyboard(view);
+                Log.d(TAG, "onEditorAction: maara");
+                return true;
             }
+            return false;
         });
     }
 
     /**
-     * Button nollaa painallus kutsuu private metodin CreateAlertDialogue
-     * @param view
+     * Metodi vastaa "nollaa päivät" -napin painallukseen
+     * @param view viittaus clickattuun viewiin
      */
     public void onButtonClick(View view){
 
@@ -115,20 +103,14 @@ public class SettingsActivity extends AppCompatActivity {
     private void CreateAlertDialogue() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.asetuksetNollausOletkoVarma);
-        builder.setPositiveButton(R.string.kylla, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(SettingsActivity.this, R.string.paivatNollattu, Toast.LENGTH_SHORT).show();
-                nollaa();
-                Log.d(TAG, "päivät nollattu");
-            }
+        builder.setPositiveButton(R.string.kylla, (dialogInterface, i) -> {
+            Toast.makeText(SettingsActivity.this, R.string.paivatNollattu, Toast.LENGTH_SHORT).show();
+            nollaa();
+            Log.d(TAG, "päivät nollattu");
         });
-        builder.setNegativeButton(R.string.peruuta, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(SettingsActivity.this, R.string.toimintoPeruutettu, Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "nollaus peruutettu");
-            }
+        builder.setNegativeButton(R.string.peruuta, (dialogInterface, i) -> {
+            Toast.makeText(SettingsActivity.this, R.string.toimintoPeruutettu, Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "nollaus peruutettu");
         });
         builder.create();
         builder.show();
@@ -149,7 +131,7 @@ public class SettingsActivity extends AppCompatActivity {
         saveValues();
     }
 
-    // Päivittää UI:n
+    // Layoutin päivitys
     private void updateUI(){
 
         EditText editHinta = (EditText) findViewById(R.id.editTextHinta);
@@ -159,17 +141,19 @@ public class SettingsActivity extends AppCompatActivity {
         editHinta.setText(String.valueOf(hinta));
     }
 
+    // Arvojen nollaus
     private void nollaa(){
         storageManager.removeValue("paivatTupakoimatta");
         storageManager.removeValue("seuraavaTavoite");
-
     }
 
+    // Arvojen tallennus
     private void saveValues(){
         storageManager.saveValue("hinta", hinta);
         storageManager.saveValue("maara", maara);
     }
 
+    // Arvojen hakeminen
     private void loadValues(){
         hinta = storageManager.loadValue("hinta");
         maara = storageManager.loadValue("maara");
@@ -177,11 +161,14 @@ public class SettingsActivity extends AppCompatActivity {
         updateUI();
     }
 
+    // Piilottaa näppäimistön
     private void hideKeyboard(View view) {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    // Navigaatiotoimintojen Listenerit
+    @SuppressLint("NonConstantResourceId")
     private void setNavigationListeners(){
         // Back button
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
