@@ -39,11 +39,12 @@ dependencies {
 
 }
 
+// Javadoc generointi
+// Rasmus
 android.applicationVariants.all { variant ->
     task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
         description "Generates Javadoc for $variant.name."
 
-        //(project.android.sourceSets.main.java.srcDirs also works if you don't care about variants)
         source = variant.javaCompile.source
         destinationDir = file("$projectDir/javadoc/")
         options.memberLevel = JavadocMemberLevel.PUBLIC
